@@ -22,7 +22,7 @@ var db *sql.DB
 func main() {
 	var err error
 
-	connStr := "host=localhost port=5432 user=postgres password=pjkf!8979 dbname=fuvestNotas sslmode=disable"
+	connStr := os.Getenv("DATABASE_URL")
 	db, err = sql.Open("postgres", connStr)
 	if err != nil {
 		log.Fatal(err)
@@ -47,7 +47,7 @@ func main() {
 	r.GET("/cursos", getCursos)
 	r.GET("/curso/:id", getCursoByID)
 
-	r.Run(":8080")
+	r.Run(":" + os.Getenv("PORT"))
 }
 
 func getCursos(c *gin.Context) {
