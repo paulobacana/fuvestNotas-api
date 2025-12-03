@@ -11,7 +11,6 @@ API simples desenvolvida em Golang (Gin) para fornecer dados de notas mínimas p
 - **Golang**
 - **Gin Web Framework**
 - **PostgreSQL**
-- **lib/pq** 
 - **Render** (deploy)
 
 ---
