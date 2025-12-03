@@ -7,7 +7,6 @@ import (
 	"os"
 
 	"github.com/gin-gonic/gin"
-	_ "github.com/lib/pq"
 )
 
 type Curso struct {
@@ -33,7 +32,7 @@ func main() {
 
 	r := gin.Default()
 
-	// Middleware simples de CORS
+	// middleware CORS
 	r.Use(func(c *gin.Context) {
 		c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
 		c.Writer.Header().Set("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
@@ -45,7 +44,7 @@ func main() {
 		c.Next()
 	})
 
-	// Rotas
+	// rotas
 	r.GET("/cursos", getCursos)
 	r.GET("/curso/:id", getCursoByID)
 
